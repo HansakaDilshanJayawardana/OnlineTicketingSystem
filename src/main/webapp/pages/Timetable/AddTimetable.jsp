@@ -110,7 +110,7 @@
                     </div>
 
 
-                    <input type="submit" id="submitBtn" onclick="validateSubmit(event)" class="btn btn-success btn-user btn-block" value="Pay">
+                    <input type="submit" id="submitBtn" onclick="validateSubmit(event)" class="btn btn-success btn-user btn-block" value="Add">
                     <hr>
                 </form>
 
