@@ -1,11 +1,13 @@
-
+<%@ page import="model.Timetable" %>
+<%@ page import="service.TimetableService" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="ISO-8859-1">
-  <title>View Timetable </title>
+  <title>Travlewise | View Timetable </title>
   <!-- Custom fonts for this template-->
   <link href="../../vendor/fontawesome-free/css/all.min.css"
         rel="stylesheet" type="text/css">
@@ -101,6 +103,17 @@
           <br>
           <div class="table-responsive">
             <table class="table table-bordered text-nowrap" id="tblViewTimetable">
+              <% TimetableService service = new TimetableService();
+                ArrayList<Timetable> list=  service.viewTimetable();
+
+                if(request.getAttribute("bt") !=null)
+                {
+                  list = (ArrayList<Timetable>)request.getAttribute("txt");
+                } else
+                {
+                  list=  service.viewTimetable();
+                }
+              %>
               <thead>
               <tr class="table-success">
                 <th>Bus Number</th>
@@ -108,9 +121,28 @@
                 <th>Starting Point</th>
                 <th>Ending Time</th>
                 <th>Destination</th>
+                <th>Edit</th>
+                <th>Delete</th>
               </tr>
               </thead>
               <tbody>
+              <%for(Timetable i:list){ %>
+              <tr>
+                <td id="name"><%= i.getName() %></td>
+                <td id="startingTime"><%= i.getStartingTime() %></td>
+                <td id="startingPoint"><%= i.getStartingPoint() %></td>
+                <td id="endTime"><%= i.getEndTime() %></td>
+                <td id="destination"><%= i.getDestination() %></td>
+                <td id="edit">
+                  <!-- Edit (Update) Button -->
+                  <a href="<%=request.getContextPath()%>/RetrieveTimetableServlet?id=<%=i.getId()%>" class="btn" style="background-color:transparent"><i class="fas fa-edit" style="color:limegreen"></i></a href="<%=request.getContextPath()%>/RetrieveStudent?id=<%=i.getId()%>">
+                </td>
+                <td id="delete">
+                  <!-- Delete Button -->
+                  <a href="<%=request.getContextPath()%>/DeleteTimetableServlet?getId=<%=i.getId()%>" class="btn" style="background-color:transparent"><i class="fas fa-trash-alt"  style="color:Red"></i></a>
+                </td>
+              </tr>
+              <%} %>
               </tbody>
 
             </table>
