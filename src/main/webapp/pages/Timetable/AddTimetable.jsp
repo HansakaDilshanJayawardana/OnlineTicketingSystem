@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="ISO-8859-1">
-    <title>Timetable</title>
+    <title>Travlewise | Add Timetable</title>
     <!-- Custom fonts for this template-->
     <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -67,50 +67,52 @@
 
 
                 <!-- Form begins -->
-                <form class="user" id="createTimetable">
+                <form class="user" id="createTimetable" name="createTimetable" action="<%=request.getContextPath()%>/AddTimetableServlet" method="post" onsubmit="return addTimetableValidation()">
 
                     <div class="form-group">
                         <label>Bus Number</label>
-                        <input type="text" id="bus" name="bus" class="form-control form-control-user" placeholder="Username">
+                        <input type="text" id="name" name="name" class="form-control form-control-user" placeholder="Username">
                     </div>
 
                     <div class="form-group">
                         <label>Starting Time</label>
-                        <input type="text" id="sTime" name="sTime" class="form-control form-control-user" placeholder="Starting Time">
+                        <input type="time" id="startingTime" name="startingTime" class="form-control form-control-user" placeholder="Starting Time">
                     </div>
 
 
                     <div class="form-group">
-                        <label for="start">Starting Point</label>
-                        <select class="form-control"  name="start" id="start">
-                            <option value="colombo">Colombo</option>
+                        <label for="startingPoint">Starting Point</label>
+                        <select class="form-control"  name="startingPoint" id="startingPoint">
+                            <option value="Select Starting point">Select Starting point</option>
+                            <option value="Colombo">Colombo</option>
                             <option value="Badulla">Badulla</option>
                             <option value="Ella">Ella</option>
                             <option value="NuwaraEliya">Nuwara-Eliya</option>
                             <option value="Kandy">Kandy</option>
-                            <option value="rathnapura">Rathnapura</option>
+                            <option value="Rathnapura">Rathnapura</option>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label>End Time</label>
-                        <input type="text" id="eTime" name="eTime" class="form-control form-control-user" placeholder="Ending Time">
+                        <input type="time" id="endTime" name="endTime" class="form-control form-control-user" placeholder="Ending Time">
                     </div>
 
                     <div class="form-group">
-                        <label for="Destinationcars">Destination</label>
-                        <select class="form-control" name="end" id="Destinationcars">
-                            <option value="colombo">Colombo</option>
+                        <label for="destination">Destination</label>
+                        <select class="form-control" name="destination" id="destination">
+                            <option value="Select Destination">Select Destination</option>
+                            <option value="Colombo">Colombo</option>
                             <option value="Badulla">Badulla</option>
                             <option value="Ella">Ella</option>
                             <option value="NuwaraEliya">Nuwara-Eliya</option>
                             <option value="Kandy">Kandy</option>
-                            <option value="rathnapura">Rathnapura</option>
+                            <option value="Rathnapura">Rathnapura</option>
                         </select>
                     </div>
 
 
-                    <input type="submit" id="submitBtn" onclick="validateSubmit(event)" class="btn btn-success btn-user btn-block" value="Add">
+                    <button type="submit" id="addBtn" class="btn btn-success btn-user btn-block">Save Timetable</button>
                     <hr>
                 </form>
 
