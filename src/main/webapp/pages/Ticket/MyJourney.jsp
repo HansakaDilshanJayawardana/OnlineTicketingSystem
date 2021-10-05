@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="ISO-8859-1">
-    <title>View Ticket Details</title>
+    <title>Travlewise | View Ticket Details</title>
     <!-- Custom fonts for this template-->
     <link href="../../vendor/fontawesome-free/css/all.min.css"
           rel="stylesheet" type="text/css">
