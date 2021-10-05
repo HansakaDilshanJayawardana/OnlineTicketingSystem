@@ -4,7 +4,7 @@
 <html>
 <head>
   <meta charset="ISO-8859-1">
-  <title>Add Passenger</title>
+  <title>Travlewise | Request Ticket</title>
   <!-- Custom fonts for this template-->
   <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -67,48 +67,45 @@
 
 
         <!-- Form begins -->
-        <form class="user" id="addTicket">
+        <form class="user" id="addTicket" action="<%=request.getContextPath()%>/IssueTicketServlet">
 
           <div class="form-group">
-            <label>Reference ID</label>
-            <input type="text" id="refId" name="refId" class="form-control form-control-user" placeholder="Reference ID">
+            <label>Passenger ID</label>
+            <input type="text" id="passenger" name="passenger" class="form-control form-control-user" placeholder="Reference ID">
           </div>
 
           <div class="form-group">
-          <label for="start">Starting Point</label>
-          <select class="form-control"  name="start" id="start">
-            <option value="colombo">Colombo</option>
+          <label for="pickup">Starting Point</label>
+          <select class="form-control"  name="pickup" id="pickup">
+            <option value="0">Select Start Point</option>
+            <option value="Colombo">Colombo</option>
             <option value="Badulla">Badulla</option>
             <option value="Ella">Ella</option>
             <option value="NuwaraEliya">Nuwara-Eliya</option>
             <option value="Kandy">Kandy</option>
-            <option value="rathnapura">Rathnapura</option>
+            <option value="Rathnapura">Rathnapura</option>
           </select>
           </div>
 
           <div class="form-group">
-            <label for="Destinationcars">Destination</label>
-            <select class="form-control" name="end" id="Destinationcars">
-              <option value="colombo">Colombo</option>
+            <label for="destination">Destination</label>
+            <select class="form-control" name="destination" id="destination">
+              <option value="0">Select End Point</option>
+              <option value="Colombo">Colombo</option>
               <option value="Badulla">Badulla</option>
               <option value="Ella">Ella</option>
               <option value="NuwaraEliya">Nuwara-Eliya</option>
               <option value="Kandy">Kandy</option>
-              <option value="rathnapura">Rathnapura</option>
+              <option value="Rathnapura">Rathnapura</option>
             </select>
           </div>
 
           <div class="form-group">
             <label>Booking Date</label>
-            <input type="date" id="bookingdate" name="bookingdate"  min="2000-01-01" class="form-control form-control-user" id="exampleInputEmail">
+            <input type="date" id="booking" name="booking"  class="form-control form-control-user">
           </div>
 
-          <div class="form-group">
-            <label>Number of Tickets</label>
-            <input type="number" min="1" max="20" id="tickets" name="tickets" class="form-control form-control-user" placeholder="Number of Tickets">
-          </div>
-
-          <input type="submit" id="submitBtn" onclick="validateSubmit(event)" class="btn btn-success btn-user btn-block" value="Request Ticket">
+          <button type="submit" id="submitBtn"  class="btn btn-success btn-user btn-block">Request Ticket</button>
           <hr>
         </form>
 
